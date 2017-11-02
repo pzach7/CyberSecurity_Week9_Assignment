@@ -20,9 +20,16 @@ Illustration of at least one attack against the honeypot that can be detected or
 ## Experiment write-up
 
 Mama always said you catch more flies with honey than vinegar, though I don't think she had the internet in mind when she said it. I set up 5 different VM's with different honeypot software.
-Immediately upon setting up my first Dionaea with HTTP server I was registering attack after attack
+Immediately upon setting up my first Dionaea with HTTP server I was registering attack after attack. The most commonly attacked or scanned ports were ports 5060 (SIP), 23 (Telnet), and 22 (SSH).
+These ports all allow for remote access to a system, so if they're open an attacker could attempt to gain access to the system by attacking these ports. The Dionaea VM's saw most of these scans.
+I knew systems open to the internet would get scanned, but I was astounded to see just how frequently they were being scanned. Just having a few open ports resulted in over 10,000 attacks/scans in under a 24 hours period.
 
-Below is a more concise version of the required details listed on the assignment page
+This assignment was very valuable to understand how important it is to keep as few ports open to the internet as possible, but also to understand how so many attacks on remote systems can take place. I would imagine that scanning machines like this is the first step to building a botnet system. Once an attacker finds an open port, they can attempt to log into the system and install malicious software on the machine.
+
+I also noticed that most of the attacks were coming from only a few different countries. China, Russia, Canada, and the United States were the top 4. Some other countries identified were Japan, South Korea, France and Brazil.
+I wasn't surprised to see China, Russia, and the United States in the top 4 due to recent and historical newsworthy events, but I was surprised to see Canada. It would have been interesting to filter the attacks by country and only count the unique attacker ID's to see which country most of the attackers were from
+
+Below is a more detailed version of the required information listed on the assignment page.
 
 ### Honey pots deployed (All on Ubuntu 14.04)
 
@@ -39,7 +46,7 @@ There was also initial difficulty getting into the admin VM, since trying to go 
 
 ### Summary of data
 
-Attacks (after ~16 hours up time):
+All Attacks (after ~16 hours up time):
 
  - Dionaea with HTTP(mhn-honeypot-1) = 9219
  - Snort (mhn-honeypot-2) = 463
@@ -47,6 +54,14 @@ Attacks (after ~16 hours up time):
  - Dionaea (mhn-honeypot-5) = 5300
  - Kippo (mhn-honeypot-6) = 216
  
+Top 5 Attacked Ports:
+
+ - 5060 (1,314 times), most likely Session Initiation Protocol
+ - 23 (1,281 times), Telnet
+ - 22 (245 times), SSH
+ - 3306 (175 times), MySQL database system
+ - 445 (158 times), Microsoft-DS Active Directory/ Windows shares
+
 Top 5 Attack signatures, Snort:
 
  - ET DROP Dshield Block Listed Source group 1 (124 times)
@@ -64,8 +79,8 @@ Kippo Results:
  
 Malware Samples:
 
- - I was unable to find any malware samples on any of the machines.
+ - I was unable to find any malware samples on any of the machines. There may have been some, but I was unable to identify any if they were present. 
  
 ### Unresolved questions raised by the data collected:
 
- - None
+ - I tried to look up more about Snort, since it gave more detailed information about attack signatures, but I was unsuccessful in finding any. I would like to know more about what the collected attack signatures are specifically and how they might impact an attacked machine.
