@@ -19,6 +19,38 @@ Illustration of at least one attack against the honeypot that can be detected or
 
 ## Experiment write-up
 
-Mama always said you catch more flies with honey than vinegar, though I don't think she had the internet in mind when she said it. I set up 5 different 
+Mama always said you catch more flies with honey than vinegar, though I don't think she had the internet in mind when she said it. I set up 5 different VM's with different honeypot software.
+Immediately upon setting up my first Dionaea with HTTP server I was registering attack after attack
 
-### Test
+Below is a more concise version of the required details listed on the assignment page
+
+### Honey pots deployed (All on Ubuntu 14.04)
+
+ - Dionaea with HTTP(mhn-honeypot-1)
+ - Snort (mhn-honeypot-2)
+ - ElasticHoney (mhn-honeypot-3)
+ - Dionaea (mhn-honeypot-5)
+ - Kippo (mhn-honeypot-6)
+ 
+### Issues
+
+I encountered some initial difficulty setting up the VM's since I was attempting to use Windows Powershell instead of linux and the commands were slightly different.
+There was also initial difficulty getting into the admin VM, since trying to go directly to the IP address would take me to the https version, when I needed the http version.
+
+### Summary of data
+
+Attacks (after ~16 hours up time):
+
+ - Dionaea with HTTP(mhn-honeypot-1) = 9219
+ - Snort (mhn-honeypot-2) = 463
+ - ElasticHoney (mhn-honeypot-3) = 2
+ - Dionaea (mhn-honeypot-5) = 5300
+ - Kippo (mhn-honeypot-6) = 216
+ 
+Malware Samples:
+
+ - I was unable to find any malware samples on any of the machines.
+ 
+Unresolved questions raised by the data collected:
+
+ - None
