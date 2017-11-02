@@ -47,10 +47,25 @@ Attacks (after ~16 hours up time):
  - Dionaea (mhn-honeypot-5) = 5300
  - Kippo (mhn-honeypot-6) = 216
  
+Top 5 Attack signatures, Snort:
+
+ - ET DROP Dshield Block Listed Source group 1 (124 times)
+ - ET SCAN Sipvicious User-Agent Detected (friendly-scanner) (29 times)
+ - ET CINS Active Threat Intelligence Poor Reputation IP TCP group 74 (25 times)
+ - ET SCAN Sipvicious Scan (25 times)
+ - ET CINS Active Threat Intelligence Poor Reputation IP UDP group 53 (15 times)
+ 
+Kippo Results:
+
+ - Top Users: <img src='https://i.imgur.com/yuDom5R.jpg' title='Top usernames' width='' alt='Top usernames' />
+ - Top Passwords: <img src='https://i.imgur.com/XpTh8ss.jpg' title='Top Passwords' width='' alt='Top Passwords' />
+ - Top Users and Passwords: <img src='https://i.imgur.com/Sbu8DuZ.jpg' title='Top Usernames and Passwords' width='' alt='Top Usernames and Passwords' />
+ - Top Attackers: <img src='https://i.imgur.com/teSIcXq.jpg' title='Top Attackers' width='' alt='Top Attackers' />
+ 
 Malware Samples:
 
  - I was unable to find any malware samples on any of the machines.
  
-Unresolved questions raised by the data collected:
+### Unresolved questions raised by the data collected:
 
  - None
